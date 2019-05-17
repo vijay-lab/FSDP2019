@@ -1,0 +1,79 @@
+"""
+
+Code Challenge
+  Name: 
+    Student and Faculty JSON
+  Filename: 
+    student.json
+    faculty.json
+  Problem Statement:
+    Create a student and Faculty JSON object and get it verified using jsonlint.com
+    Write a JSON for faculty profile. 
+    The JSON should have profile of minimum 2 faculty members. 
+    The profile for each faculty should include below information atleast:
+
+        First Name
+        Last Name
+        Photo (Just a random url)
+        Department 
+        Research Areas (can be multiple)
+        Contact Details (should include phone number and email id and can have multiple )
+
+"""
+###################### Faculty_details #############################
+
+{
+	"Faculty": {
+		"Faculty1": {
+			"FirstName": "Varsha",
+			"LastName": "Apte",
+			"Photo": "https://www.cse.iitb.ac.in/~varsha/",
+			"Department": "Computer Science",
+			"Research Areas": " Performance Evaluation of Computer Systems and Networks",
+			"Contact Details": {
+				"Contact_number": 7731,
+				"email": "varsha@cse.iitb.ac.in"
+			}
+		},
+		"Faculty2": {
+			"FirstName": "Suyash",
+			"LastName": "Awate",
+			"Photo": "https://www.cse.iitb.ac.in/~suyash/",
+			"Department": "Computer Science",
+			"Research Areas": "Image Analysis, Medical Image Computing, Machine Learning, Computer Vision",
+			"Contact Details": {
+				"Contact_number": 7703,
+				"email": "suyash@cse.iitb.ac.in"
+			}
+		}
+	}
+}
+      
+########### Students_details ##########################        
+
+{
+	"Students": {
+		"Student1": {
+			"FirstName": "Abhinav",
+			"LastName": "Goyal",
+			"Photo": "https://www.cse.iitb.ac.in/~abhigoyal/",
+			"Department": "Computer Science",
+			"College": "Indian Institute of Technology,Bombay",
+			"Contact Details": {
+				"Contact_number": "0123456789",
+				"email": "abhigoyal@cse.iitb.ac.in"
+			}
+		},
+		"Student2": {
+			"FirstName": "Abhishek",
+			"LastName": "Kumar",
+			"Photo": "https://www.cse.iitb.ac.in/~abhikumar/",
+			"Department": "Computer Science",
+			"College": "Indian Institute of Technology,Bombay",
+			"Contact Details": {
+				"Contact_number": "0123456789",
+				"email": "abhikumar@cse.iitb.ac.in"
+			}
+		}
+	}
+}

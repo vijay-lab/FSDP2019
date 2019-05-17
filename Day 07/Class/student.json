@@ -1,0 +1,50 @@
+"""
+
+Code Challenge
+  Name: 
+    Student JSON
+  Filename: 
+    student.json
+  Problem Statement:
+    Create a student JSON object and get it verified using jsonlint.com
+    Write a JSON for student profile. 
+    The JSON should have profile of minimum 2 students. 
+    The profile for each student should include below information atleast:
+
+        First Name
+        Last Name
+        Photo (Just a random url)
+        Department 
+        College
+        Contact Details (should include phone number and email id and can have multiple )
+
+"""
+
+########### Students_details ##########################        
+
+{
+	"Students": {
+		"Student1": {
+			"FirstName": "Abhinav",
+			"LastName": "Goyal",
+			"Photo": "https://www.cse.iitb.ac.in/~abhigoyal/",
+			"Department": "Computer Science",
+			"College": "Indian Institute of Technology,Bombay",
+			"Contact Details": {
+				"Contact_number": "0123456789",
+				"email": "abhigoyal@cse.iitb.ac.in"
+			}
+		},
+		"Student2": {
+			"FirstName": "Abhishek",
+			"LastName": "Kumar",
+			"Photo": "https://www.cse.iitb.ac.in/~abhikumar/",
+			"Department": "Computer Science",
+			"College": "Indian Institute of Technology,Bombay",
+			"Contact Details": {
+				"Contact_number": "0123456789",
+				"email": "abhikumar@cse.iitb.ac.in"
+			}
+		}
+	}
+}
