@@ -1,0 +1,26 @@
+{
+	"Faculty": {
+		"faculty1": {
+			"FirstName": "Shiv Kumar",
+			"LastName": "Sharma",
+			"Photo": "http://dailyutahchronicle.com/wp-content/uploads/2017/10/professorrating-696x463.jpg",
+			"Department": "CSE",
+			"Research Areas": "Np-Complete Problem",
+			"Contact Details": {
+				"Contact_number": 1234567890,
+				"email": "shivsharma.cse@anandice.ac.in"
+			}
+		},
+		"faculty2": {
+			"FirstName": "Hina",
+			"LastName": "Lala",
+			"Photo": "http://dailyutahchronicle.com/wp-content/uploads/2017/10/professorrating-696x463.jpg",
+			"Department": "CSE",
+			"Research Areas": "MISD systems,Distributed Systems,Computer Vision",
+			"Contact Details": {
+				"Contact_number": 9985656520,
+				"email": "hinalala.cse@anandice.ac.in"
+			}
+		}
+	}
+}
