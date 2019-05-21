@@ -19,10 +19,10 @@ from selenium import webdriver
 import tweepy 
   
 # personal details 
-consumer_key ="lWwbyPZiV1yvOZbE5Qi3tpZfu"
-consumer_secret ="OTbq6UV1SMs2tt8L4FKJ2WDfsPWL3Tclbubr4sM1KI0Iecn49i"
-access_token ="1130091390547849216-57RwY7fv4n6ggxegIEWAWOloKUfHIy"
-access_token_secret ="L2XmfikQbkuHJWQpcnfhq4aGs7hVvyOfS8BDFRJ95D57U"
+consumer_key ="yourkey"
+consumer_secret ="yourkey"
+access_token ="yourkey"
+access_token_secret ="yourkey"
 # authentication of consumer key and secret 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 # authentication of access token and secret 
