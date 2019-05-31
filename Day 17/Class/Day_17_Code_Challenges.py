@@ -24,8 +24,6 @@ When Father’s Height Is Held Constant, The Average Student Height Increases By
 When Mother’s Height Is Held Constant, The Average Student Height Increases By How Many Inches For Each One-Inch Increase In Father’s Height.
 
 
-
-
 Q. (Create a program that fulfills the following specification.)
 bluegills.csv
 

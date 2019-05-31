@@ -33,13 +33,28 @@ dataset = pd.read_csv('Bahubali2_vs_Dangal.csv')
 temp = dataset.values
 features = dataset.iloc[:, :1].values
 labels = dataset.iloc[:, 1:].values
-
-regressor = LinearRegression()
-regressor.fit(features, labels)
+lab_bah=dataset.iloc[:, 1].values
+lab_dan=dataset.iloc[:, 2].values
 
 day=np.array(10)
 
 day=day.reshape(1,1)
+#model for bahubali
+regressor_bah = LinearRegression()
+regressor_bah.fit(features, lab_bah)
+
+regressor_bah.predict(day)
+
+#model for Dangal
+regressor_dan = LinearRegression()
+regressor_dan.fit(features, lab_dan)
+
+regressor_dan.predict(day)
+
+# BOth labels together
+regressor = LinearRegression()
+regressor.fit(features, labels)
+
 regressor.predict(day)
 
 print ("The Profit on day 10 of {} is {} and {} is {}".format('bahubali 2',regressor.predict(day)[0][0],'dangal' ,regressor.predict(day)[0][1]))

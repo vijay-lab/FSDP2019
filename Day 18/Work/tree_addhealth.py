@@ -102,8 +102,6 @@ from sklearn.linear_model import LogisticRegression
 
 
 
-
-
 health_data=pd.read_csv("tree_addhealth.csv")
 health_data.isnull().any(axis=0)
 
@@ -130,9 +128,9 @@ label_pred = classifier.predict(features_test)
 
 # Making the Confusion Matrix
 cm = confusion_matrix(label_test, label_pred)
-score=classifier.score(features_test,label_test)
+score_knn_tst=classifier.score(features_test,label_test)
 
-score1=classifier.score(features_train,label_train)
+score_knn_trn=classifier.score(features_train,label_train)
 ##Ask about score
 
 ##LR
@@ -147,23 +145,25 @@ label_pred = classifier_lr.predict(features_test)
 
 # Making the Confusion Matrix
 cm = confusion_matrix(label_test, label_pred)
-score_lr=classifier_lr.score()
+score_lr_tst=classifier_lr.score(features_test,label_test)
+score_lr_trn=classifier_lr.score(features_train,label_train)
+
 
 #####Descision Tree Model Implemantation
 dtc = DecisionTreeClassifier(criterion="entropy",random_state=0)
 dtc.fit(features_train,label_train)
-pred = dtc.predict(features_test)
+pred_dtm = dtc.predict(features_test)
 
-cm = confusion_matrix(pred,label_test)
-plt.plot(label,pred)
-model_accuracy_dt = accuracy_score(label_test,pred)
+cm = confusion_matrix(pred_dtm,label_test)
+plt.plot(label_test,pred_dtm)
+
+model_accuracy_dt = accuracy_score(label_test,pred_dtm)
 
 #withot train test
 dtc = DecisionTreeClassifier(criterion="entropy",random_state=0)
 dtc.fit(features,label)
 pred = dtc.predict(features)
 
-cm = confusion_matrix(pred,features)
 plt.plot(label,pred)
 model_accuracy_dt = accuracy_score(label,pred)
 
@@ -184,8 +184,9 @@ probability2 = classifier2_lr.predict_proba(features2_test)
 # Predicting the class labels
 label2_pred = classifier2_lr.predict(features2_test)
 
-accuracy_score(label2_test, label2_pred)
-
+accuracy_score(label2_test.round(), label2_pred)
+#Classification metrics can't handle a mix of continuous and binary targets
+#Error resolved by rounding off values
 
 #/knn
 # Fitting Logistic Regression to the Training set

@@ -35,7 +35,7 @@ from sklearn.preprocessing import OneHotEncoder
 onehotencoder=OneHotEncoder(categorical_features=[0])
 
 features=onehotencoder.fit_transform(features).toarray()
-
+# Dummy Trap removed
 features = features[:, 1:]
 
 from sklearn.model_selection import train_test_split
@@ -43,19 +43,26 @@ features_train, features_test, label_train, label_test = train_test_split(featur
 
 from sklearn.linear_model import LinearRegression
 regressor=LinearRegression()
-
 regressor.fit(features_train, label_train)
-
 label_pred=regressor.predict(features_test)
 
-from sklearn.metrics import r2_score
-print(r2_score(label_test,label_pred))
+#from sklearn.metrics import r2_score
+#print(r2_score(label_test,label_pred))
+#
+#Score_trn = regressor.score(features_train, label_train)
+#Score_tst = regressor.score(features_test, label_test)
+#from sklearn import metrics  
+#print('Mean Absolute Error:', metrics.mean_absolute_error(label_test, label_pred))  
+#print('Mean Squared Error:', metrics.mean_squared_error(label_test, label_pred))  
+#print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(label_test, label_pred)))  
+#
+#print (np.mean(label))
 
-Score = regressor.score(features_train, label_train)
-Score = regressor.score(features_test, label_test)
-from sklearn import metrics  
-print('Mean Absolute Error:', metrics.mean_absolute_error(label_test, label_pred))  
-print('Mean Squared Error:', metrics.mean_squared_error(label_test, label_pred))  
-print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(label_test, label_pred)))  
 
-print (np.mean(label))
+chance=np.array([0,0,0,1,0,350,3.7,4,8.89,0])
+chance=chance.reshape(1,-1)
+
+chance=onehotencoder.fit_transform(chance).toarray()
+
+print("Chances of Admission Are:",regressor.predict(chance)[0], "%")
+

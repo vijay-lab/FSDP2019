@@ -70,12 +70,9 @@ regressor.fit(features, labels)
 print(regressor.intercept_)  
 print (regressor.coef_)
 
-#what would be prediction of score if someone studies 5 hours
-print (regressor.coef_*5 + regressor.intercept_)
-jaipur=np.array(3.073)
+jaipur=np.array(3.073).reshape(1,1)
 
-jaipur=jaipur.reshape(1,1)
-print ("The Profit by opening a store in jaipur is",regressor.predict(jaipur)[0])
+print ("The Profit by opening a store in jaipur is",round(regressor.predict(jaipur)[0],4),"i.e. it's a loss to expend in jaipur")
 
 
 

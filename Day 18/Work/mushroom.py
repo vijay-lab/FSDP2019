@@ -89,6 +89,7 @@ features[:, 1] = labelencoder.fit_transform(features[:, 1])
 
 features[:, 2] = labelencoder.fit_transform(features[:, 2])
 
+
 from sklearn.preprocessing import OneHotEncoder
 onehotencoder = OneHotEncoder(categorical_features =[0,1,2])
 features = onehotencoder.fit_transform(features).toarray()
@@ -112,40 +113,12 @@ probability = classifier.predict_proba(features)
 labels_pred = classifier.predict(features)
 
 # Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix,accuracy_score
 cm = confusion_matrix(labels, labels_pred)
 
-score=classifier.score(labels,labels_pred)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+accu_knn=accuracy_score(labels, labels_pred)
+print("The accuracy of model is ",accu_knn,  "%")
 
 
 

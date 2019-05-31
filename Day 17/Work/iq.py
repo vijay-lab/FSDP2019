@@ -88,5 +88,8 @@ poly_object = PolynomialFeatures(degree =5)
 features_poly = poly_object.fit_transform(features)
 
 
-lin_reg_2 = LinearRegression()
-lin_reg_2.fit(features_poly, labels)
+Poly_reg = LinearRegression()
+
+Poly_reg.fit(features_poly, labels)
+
+Poly_reg.score(features_poly,labels)

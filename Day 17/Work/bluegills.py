@@ -44,7 +44,7 @@ x=x.reshape(1,-1)
 
 
 print ("Predicting result with Linear Regression")
-print (lin_reg_1.predict(x))
+print ("Length of a 5 yr. old fish is",lin_reg_1.predict(x)[0][0])
 
 # Visualising the Linear Regression results
 plt.scatter(features, labels, color = 'red')
@@ -68,7 +68,7 @@ lin_reg.fit(features_poly, labels)
 
 print ("Predicting result with Polynomial Regression")
 
-print (lin_reg.predict(poly_object.transform(x)))
+print ("Length of a 5 yr. old fish in polynomial regressor is",lin_reg.predict(poly_object.transform(x))[0][0])
 
 # Visualising the Polynomial Regression results
 plt.scatter(features, labels, color = 'red')
@@ -84,7 +84,6 @@ sfs_df=fs_df.sort_values(['age','length'])
 
 features = sfs_df.iloc[:, 0:1].values
 labels = sfs_df.iloc[:, 1:].values
-
 
 from sklearn.linear_model import LinearRegression
 lin_reg_1 = LinearRegression()
