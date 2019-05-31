@@ -22,9 +22,6 @@ if height_count > 0:
 
 print (average_height)
     
-    
-
-
 
 from functools import reduce
 
@@ -46,4 +43,3 @@ print(list(my_filter_list))
 my_filter_list = filter ( lambda x:x%3==0 or x%5==0, my_list)
 print(list(my_filter_list))
 
-filter>>reduce

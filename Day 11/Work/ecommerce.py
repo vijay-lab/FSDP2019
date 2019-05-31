@@ -35,14 +35,29 @@ import matplotlib.pyplot as plt
 
 
 incomes = np.random.normal(100.0, 20.0, 10000)
-plt.hist(incomes,50)
+
 
 print("Mean value is: ", np.mean(incomes))
 print("Median value is: ", np.median(incomes))
 
-income=np.append(incomes,500)
+#income=np.append(incomes,500)
+plt.title("Original Data")
+plt.hist(incomes,50)
+plt.show()
+#
+#print("Mean value is: ", np.mean(incomes))
+#print("Median value is: ", np.median(incomes))
 
-plt.hist(income,50)
 
-print("Mean value is: ", np.mean(income))
-print("Median value is: ", np.median(income))
+plt.title("After adding outliers")
+income=np.append(incomes,[5000,1000.322,9900])
+plt.hist(incomes,50)
+plt.show()
+
+print("After adding outliers Mean value is: ", np.mean(income))
+print("After adding outliers Median value is: ", np.median(income))
+
+
+
+
+

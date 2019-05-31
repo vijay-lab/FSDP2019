@@ -1,54 +1,62 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri May 17 17:02:08 2019
+Created on Sat May 18 17:13:23 2019
 
 @author: TAPAN
+
+
+
+
+
+Code Challenge 1
+
+Certificate Generator
+
+Develop a Python code that can generate certificates in image format. 
+It must take names and other required information from the user and generates 
+certificate of participation in a Python Bootcamp conducted by Forsk.
+
+Certificate should have Forsk Seal, Forsk Signature, Different Fonts
 """
-import os
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageDraw
+
+from PIL import Image, ImageDraw, ImageFont
 
 
+img_cert = Image.open("Certi_temp.jpg").convert("RGBA")
+logo = Image.open("logo1.png")
 
-template = Image.new('RGB', (1280,720), (0, 13, 30))
-template.save("template.png", "PNG")
+part_name=(input("Enter participants name\n")).upper()
+logo_open = Image.open("logo.jpg")
+stamp_open = Image.open("stamp.jpg")
+sign_open = Image.open("sign.jpg")
 
-
-img = Image.open("template.png")
-draw = ImageDraw.Draw(img)
-
-selectFont = ImageFont.truetype("ariel.ttf", size = 50)
-
-
-
-
-draw.text( (250,70), "CERTIFICATE OF APPRICIATION", (43,107,189), font=selectFont)
-
-img.save('sample_certi.png')
+img_cert.paste(sign_open, (50, 400))
+img_cert.paste(stamp_open, (600, 350))
+img_cert.paste(logo, (3, 50),logo)
+img_cert.save("temp_w_logo.png")
 
 
-filename=Image.open('template.png')
-ironman = Image.open(filename, 'r')
+certificate = Image.open("temp_w_logo.png")
+draw = ImageDraw.Draw(certificate)
+
+cop = ImageFont.truetype('Certificate.ttf', size=50)
+arial = ImageFont.truetype('arial.ttf', size=50)
+arial1 = ImageFont.truetype('arial.ttf', size=30)
 
 
-filename1=Image.open('logo.png')
-bg = Image.open(filename1, 'r')
-alpha=0.5
-out = Image.blend(img,filename1,alpha)
-out.show()
-#
-#out = filename * (1.0 - 1) + filename1 * 0.50
+# draw the message on the background
+
+draw.text((130, 50), 'Certification of Participation', fill=(20, 20, 255), font=cop)
+
+draw.text((175, 120), "This certifies that ", fill='gray', font=arial)
 
 
+draw.text((135, 200), part_name , fill='black', font=arial)
 
-text_img = Image.new('RGB', (1280,720), (0, 13, 30))
-text_img.paste(bg, (120,360))
+draw.text((50, 280), "has actively participated in Forsk Summer Bootcamp ", fill=(51,51,255), font=arial1)
+
+draw.text((50, 320), "for 2 Months and achieved grade A certification ", fill=(51,51,255), font=arial1)
+
+certificate.save("new.png", "PNG")
 
 
-text_img.paste(ironman, (0,0))
-text_img.save("new_certi.png", format="png")
-# (x,y) is the starting position for the draw object
-# text is the text to be entered
-# (r,g,b) represents the color eg (255,0,0) is Red
-# font is used to specify the Font object

@@ -22,49 +22,47 @@ Certificate should have Forsk Seal, Forsk Signature, Different Fonts
 from PIL import Image, ImageDraw, ImageFont
 
 
-img = Image.new('RGBA', (728,542), 'White')
-img.save("Certi_Template.png", "PNG")
+img_cert = Image.open("Certi_temp.jpg").convert("RGBA")
+logo = Image.open("logo1.png")
 
-img_cert = Image.open("Certi_Template.png").convert("RGBA")
-logo = Image.open("logo.png")
-border= Image.open("border.png").convert("RGBA")
-
-part_name=input("Enter participants name\n")
-
-width = 50
-height = 40
+part_name=(input("Enter participants name\n")).upper()
+#
+#width = 50
+#height = 40
 # use one of these filter options to resize the image)     
-ANTIALIAS = logo.resize((width, height), Image.ANTIALIAS)    # best down-sizing filter
-ANTIALIAS.save("ANTIALIAS.PNG")
-ANTIALIAS = Image.open("ANTIALIAS.png")
+#ANTIALIAS = logo.resize((width, height), Image.ANTIALIAS)    # best down-sizing filter
 
-img_cert.paste(ANTIALIAS, (250, 200),ANTIALIAS)
+logo_open = Image.open("logo.jpg")
+stamp_open = Image.open("stamp.jpg")
+sign_open = Image.open("sign.jpg")
 
-img_cert.paste(border, (0, 0),border)
-
+img_cert.paste(sign_open, (50, 400))
+img_cert.paste(stamp_open, (600, 350))
+img_cert.paste(logo, (3, 50),logo)
 img_cert.save("temp_w_logo.png")
 
-certificate = Image.open("temp_w_logo.png")
 
+certificate = Image.open("temp_w_logo.png")
 draw = ImageDraw.Draw(certificate)
 
-font = ImageFont.truetype('Certificate.ttf', size=90)
-arial = ImageFont.truetype('arial.ttf', size=60)
-arial1 = ImageFont.truetype('arial.ttf', size=40)
+cop = ImageFont.truetype('Certificate.ttf', size=50)
+arial = ImageFont.truetype('arial.ttf', size=50)
+arial1 = ImageFont.truetype('arial.ttf', size=30)
 
 
 # draw the message on the background
 
 color = 'rgb(20, 20, 255)' # white color
-draw.text((30, 30), 'Certification of Participation', fill=color, font=font)
+draw.text((130, 50), 'Certification of Participation', fill=color, font=cop)
 
-draw.text((30, 90), "Forsk Labs Awards ", fill='gray', font=arial)
+draw.text((175, 120), "This certifies that ", fill='gray', font=arial)
 
 
-draw.text((30, 150), part_name , fill='RED', font=arial)
+draw.text((135, 200), part_name , fill='black', font=arial)
 
-draw.text((30, 260), "for Excellent performance at Summer Bootcamp ", fill='RED', font=arial1)
+draw.text((50, 280), "has actively participated in Forsk Summer Bootcamp ", fill=(51,51,255), font=arial1)
 
+draw.text((50, 320), "for 2 Months and achieved grade A certification ", fill=(51,51,255), font=arial1)
 
 
 

@@ -21,8 +21,8 @@ Code Challenge
   
 """
 import numpy as np
-list1=[6,9,2,3,5,8,1,5,4]
-ndarr1=np.array(list1)#convering list to numpy array
+list1=input("Enter 9 space separated numbers: ").split(" ")
+ndarr1=np.array(list1,dtype= 'int64')#convering list to numpy array of integers
 print(ndarr1)
 matrix1=ndarr1.reshape(3,3)#reshaping array to matrix of (3,3)
 print(matrix1)

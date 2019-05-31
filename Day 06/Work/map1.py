@@ -29,13 +29,11 @@ def comp(x):
     return names
     
 
-
-
 result = map(comp, code_names) 
 result=list(result) 
 
-
-
-
 result=result.pop(0)
 print(result)
+
+
+val11=list(filter(comp,code_names))

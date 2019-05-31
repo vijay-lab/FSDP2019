@@ -25,8 +25,8 @@ for email in list_of_eml:
     if re.match(r'^[A-Za-z0-9_-]+@[A-Z0-9a-z]+\.[a-z]{2,4}$', email):
         
         
-        print("True")
+  
         #list_of_eml.append(email)
         list_of_eml2.append(email)
       
-  
+print(sorted(list_of_eml2))
