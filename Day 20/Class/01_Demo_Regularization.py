@@ -2,9 +2,17 @@
 #https://medium.com/@jayeshbahire/lasso-ridge-and-elastic-net-regularization-4807897cb722
 
 """
-L1 Regularization aka Lasso Regularization– This add regularization terms in the model which are function of absolute value of the coefficients of parameters. The coefficient of the paratmeters can be driven to zero as well during the regularization process. Hence this technique can be used for feature selection and generating more parsimonious model
-L2 Regularization aka Ridge Regularization — This add regularization terms in the model which are function of square of coefficients of parameters. Coefficient of parameters can approach to zero but never become zero and hence
-Combination of the above two such as Elastic Nets– This add regularization terms in the model which are combination of both L1 and L2 regularization.
+L1 Regularization aka Lasso Regularization– This add regularization terms in the model which are 
+function of absolute value of the coefficients of parameters. The coefficient of the paratmeters 
+can be driven to zero as well during the regularization process. Hence this technique can be used 
+for feature selection and generating more parsimonious model
+
+L2 Regularization aka Ridge Regularization — This add regularization terms in the model which are 
+function of square of coefficients of parameters. Coefficient of parameters can approach to zero 
+but never become zero and hence
+
+Combination of the above two such as Elastic Nets– This add regularization terms in the model which
+ are combination of both L1 and L2 regularization.
 """
 
 """
