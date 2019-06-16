@@ -60,21 +60,18 @@ for item in results:
     print("Lift: " + str(item[2][0][3]))
     print("=====================================")
     
-frequency=[]
-i=1
-for i in range(20):
-    frequency.append(mbs[i].value_counts())
-    i+=1
+#frequency=[]
+#i=1
+#for i in range(20):
+#    frequency.append(mbs[i].value_counts())
+#    i+=1
+#    
+#frame=frequency[0] | frequency[1] |frequency[2] | frequency[3]
+#    
+#    
+#    
     
-frame=frequency[0] | frequency[1] |frequency[2] | frequency[3]
-    
-if (frequency[0].index is frequency[1].index  ):
-    
-    
-    
-
-    
-    
-    
+tran=np.array(transactions).reshape()
+tran1=pd.Series(tran)
     
     
