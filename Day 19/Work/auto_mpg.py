@@ -15,7 +15,8 @@ Import the dataset Auto_mpg.txt
 1.Give the column names as "mpg", "cylinders", "displacement","horsepower","weight","acceleration", "model year", "origin", "car name" respectively
 2.Display the Car Name with highest miles per gallon value.
 3.Build the Decision Tree and Random Forest models and find out which of the two is more accurate in predicting the MPG value
-4.Find out the MPG value of a 80's model car of origin 3, weighing 2630 kgs with 6 cylinders, having acceleration around 22.2 m/s due to it's 100 horsepower engine giving it a displacement of about 215. (Give the prediction from both the models)
+4.Find out the MPG value of a 80's model car of origin 3, weighing 2630 kgs with 6 cylinders, having acceleration around 22.2 m/s due to it's 100 horsepower 
+engine giving it a displacement of about 215. (Give the prediction from both the models)
 
 """
 import numpy as np
@@ -43,9 +44,10 @@ features=car_data.iloc[:,1:8].values
 # 2.Display the Car Name with highest miles per gallon value.
 # DIY car_data['mpg'].max()
 
-zz=car_data['mpg'].argmax()
+zz=car_data['mpg'].idxmax() # or use .argmax()
 car_name=car_data.iloc[zz][8]# [8] specifies column value or can be done as car_name=car_data.iloc[zz] and then print(car_name[8])
-print("the car with the maximum milege is",car_name)
+#name=car_data['car name']  [ car_data['mpg'] == car_data['mpg'].max() ] another method to access data
+print("the car with the maximum milage is",car_name)
 
 # 3.Build the Decision Tree and Random Forest models and find out which of the two is more accurate in predicting the MPG value
 # Removed cause car name is not needed to predict
@@ -64,16 +66,18 @@ dtr.fit(feature_train, label_train)
 
 label_pred = dtr.predict(feature_test)
 dtr_pred_df=pd.DataFrame({'Actual':label_test, 'Predicted':label_pred})  
-score_train=dtr.score(feature_train,label_train)
-score_test=dtr.score(feature_test,label_test)
+dt_score_train=dtr.score(feature_train,label_train)
+dt_score_test=dtr.score(feature_test,label_test)
 
 ## RF Model
-regressor = RandomForestRegressor(n_estimators=10, random_state=0)  
-regressor.fit(feature_train, label_train)  
-label_pred = regressor.predict(feature_test)  
+rfr = RandomForestRegressor(n_estimators=10)  
+rfr.fit(feature_train, label_train)  
+label_pred = rfr.predict(feature_test)  
 
-label_pred = regressor.predict(feature_test)
-df=pd.DataFrame({'Actual':label_test, 'Predicted':label_pred})  
+label_pred = rfr.predict(feature_test)
+rf_pred_df=pd.DataFrame({'Actual':label_test, 'Predicted':label_pred})  
+rf_score_train=rfr.score(feature_train,label_train)
+rf_score_test=rfr.score(feature_test,label_test)
 
 """
 4.Find out the MPG value of a 80's model car of origin 3, weighing 2630 kgs with 6 cylinders, having acceleration around 22.2 m/s 
@@ -85,4 +89,4 @@ val_predict=np.array(val_predict)## for some reason dtr is predicting better ???
 val_predict=val_predict.reshape(1,-1)
 
 pred_dtr=dtr.predict(sc.transform(val_predict))
-pred_rf=regressor.predict(sc.transform(val_predict))
+pred_rf=rfr.predict(sc.transform(val_predict))

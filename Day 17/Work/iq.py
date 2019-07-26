@@ -64,6 +64,14 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(kept_features, labels)    
 
+#while True:
+#    regressor_OLS=sm.OLS(exog=kept_features,endog=labels).fit()
+#    pvalues = regressor_OLS.pvalues
+#    if pvalues.max() <= 0.05:
+#        break
+#    index = pvalues.argmax()
+#    indices = pvalues.range(index)
+#    kept_features = kept_features[:, ]
 
 print("Only Brain  SIze mattter")
 

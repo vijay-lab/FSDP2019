@@ -57,7 +57,7 @@ from sklearn import tree
 import graphviz 
 dot_data = tree.export_graphviz(classifier, out_file=None) 
 graph = graphviz.Source(dot_data) 
-graph.render("decision_tree") 
+graph.render("classifier_decision_tree") 
 """
 
 
@@ -87,20 +87,20 @@ df
 
 from sklearn import tree
 #tree.plot_tree(regressor)  #works with version 0.21.1
-
-#to run below code: pip install graphviz
+"""
+to run below code: pip install graphviz
+conda install graphviz
+Install windows package from: https://graphviz.gitlab.io/_pages/Download/Download_windows.html
+Install python graphviz package
+Add C:\Program Files (x86)\Graphviz2.38\bin to User path
+Add C:\Program Files (x86)\Graphviz2.38\bin\dot.exe to System Path
+Restart spyder
+https://stackoverflow.com/questions/35064304/runtimeerror-make-sure-the-graphviz-executables-are-on-your-systems-path-aft
+"""
 import graphviz
 dot_data = tree.export_graphviz(regressor, out_file=None) 
 graph = graphviz.Source(dot_data) 
-graph.render("decision_tree") 
-
-
-
-
-
-
-
-
+graph.render("regressor_decision_tree") 
 
 
 
@@ -113,13 +113,14 @@ graph.render("decision_tree")
 #Evaluation
 #To evaluate performance of the regression algorithm, the commonly used metrics are mean absolute error, mean squared error, and root mean squared error.
 from sklearn import metrics  
-print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))  
-print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))  
-print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred))) 
+print('Mean Absolute Error:', metrics.mean_absolute_error(labels_test, labels_pred))  
+print('Mean Squared Error:', metrics.mean_squared_error(labels_test, labels_pred))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(labels_test, labels_pred))) 
 
 """
-The mean absolute error for our algorithm is 54.7, which is less than 10 percent of the mean of all the values in the 'Petrol_Consumption' column. This means that our algorithm did a fine prediction job.
+The mean absolute error for our algorithm is 54.7, which is less than 10 percent of the mean of all
+the values in the 'Petrol_Consumption' column. This means that our algorithm did a fine prediction job.
 """
-
+mean_petrol_consumption=np.mean(dataset.Petrol_Consumption)
 
 

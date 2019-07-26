@@ -5,7 +5,7 @@ Created on Thu May 30 17:58:06 2019
 @author: TAPAN
 
 
-Q1. (Create a program that fulfills the following specification.)
+Q2. (Create a program that fulfills the following specification.)
 PastHires.csv
 
 
@@ -30,10 +30,11 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split as tts
 from sklearn.preprocessing import Imputer,LabelEncoder,OneHotEncoder
-from sklearn.ensemble import RandomForestRegressor
 
 le = LabelEncoder()
 hire_data2=pd.read_csv("PastHires.csv")
+# checking for null values
+hire_data.isnull().values.any()
 
 #Preparing the dataset in dataframe
 hire_data=pd.read_csv("PastHires.csv")
@@ -46,8 +47,8 @@ hire_data.iloc[:,6]=le.fit_transform(hire_data.iloc[:,6])
 label=hire_data.iloc[:,-1].values
 features=hire_data.iloc[:,0:-1].values
 
-from sklearn.model_selection import train_test_split  
-features_train, features_test, labels_train, labels_test = train_test_split(features, label, test_size=0.20, random_state=0) 
+features_train, features_test, labels_train, labels_test = tts(features, label, test_size=0.20, random_state=0) 
+
 ## Fitting in Decision Tree
 from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier()  
@@ -80,6 +81,8 @@ print("The prediction of both model is that he will get hired")
 #Predict employment of an unemployed 10-year veteran, ,previous employers 4, didn't went to any top-tire school, having Master's Degree with Internship.
 
 WoI=[10,0,4,1,0,1]
+#WoI=np.array(WoI)
+#WoI=WoI.reshape(1,-1) or do this below
 WoI=np.reshape(WoI,(1,-1))
 WoI_pred_dtc = classifier.predict(WoI)
 WoI_pred_rf = classifier_rf.predict(WoI)

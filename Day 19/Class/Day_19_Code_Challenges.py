@@ -15,7 +15,7 @@ Import the dataset Auto_mpg.txt
 
 
 
-Q1. (Create a program that fulfills the following specification.)
+Q2. (Create a program that fulfills the following specification.)
 PastHires.csv
 
 
